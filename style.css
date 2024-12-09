@@ -1,0 +1,142 @@
+:root {
+    --color-main: #f5f5f5;
+    --color-black: #2c2c2c;
+    --color-select: #ccc;
+    --color-text: #2c2c2c;
+    --color-accent: #fff;
+
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+p {
+    margin: 0;
+}
+
+.app {
+    padding-block-start: 100px;
+    color: var(--color-text);
+    background-color: var(--color-main);
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 250px;
+    max-width: 500px;
+    padding: 0;
+}
+
+.search {
+    width: 100%;
+}
+
+.search-input {
+    width: 100%;
+    margin-block-end: 5px;
+    border: 2px solid var(--color-select);
+    border-radius: 5px;
+    padding: 5px;
+    background-color: var(--color-accent);
+}
+
+.result-box {
+    position: absolute;
+    width: 100%;
+    border: 2px solid var(--color-select);
+    border-radius: 5px;
+    background-color: var(--color-accent);
+}
+
+.result-box__empty {
+    padding: 5px;
+    font-style: italic;
+    text-align: center;
+}
+
+.result-box__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.result-box__list-item {
+    position: relative;
+    padding: 5px 15px;
+    transition: all 0.4s ease;
+}
+
+.result-box__list-item:hover {
+    background-color: var(--color-select);
+}
+
+.result-box__list-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left:  50%;
+    width: 95%;
+    height: 1px;
+    background-color: var(--color-select);
+    transform: translateX(-50%);
+}
+
+.selected-repos {
+    width: 100%;
+}
+
+.selected-repos__list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.repo-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: solid 2px var(--color-select);
+    border-radius: 5px;
+    background-color: #E27BEB;
+    padding: 10px;
+}
+
+.repo-card__del-btn {
+    align-self: stretch;
+    width: 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 612"><polygon points="612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397 306,341.411 576.521,611.397 612,575.997 341.459,306.011" fill="rgb(255,0,0)"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+
+.repo-card__del-btn:hover {
+    transform: scale(1.15);
+}
+
+.repo-card__del-btn:active {
+    transform: scale(0.85);
+}
+
+.hidden {
+    display: none;
+}
